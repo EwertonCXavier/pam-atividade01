@@ -63,3 +63,6 @@ SELECT org_lotacao, count(nome) FROM militares GROUP BY org_lotacao;
 
 -- CLASSIFICA POR PATENTE E ÓRGÃO DE LOTAÇÃO
 SELECT org_lotacao, descricao_cargo,  count(nome) FROM militares GROUP BY descricao_cargo, org_lotacao ORDER BY org_lotacao;
+
+-- MOSTRA O NÚMERO DE AFASTAMENTOS POR ANO
+SELECT SUBSTRING(data_inicio_afastamento, 7, 10) AS YEAR, COUNT(*) AS TOTAL FROM militares WHERE data_inicio_afastamento != '' GROUP BY SUBSTRING(data_inicio_afastamento, 7, 10) ORDER BY SUBSTRING(data_inicio_afastamento, 7, 10);
